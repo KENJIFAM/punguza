@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 1000 1000">
+	<defs>
+		<filter id="f1" x="0" y="0">
+			<feGaussianBlur in="SourceGraphic" stdDeviation="0.5"></feGaussianBlur>
+		</filter>
+	</defs>
+	<rect width="100%" height="100%" fill="#d4dddb"></rect>
+	<g transform="translate(79, 120)">
+		<circle r="155" fill="#a2bfb8" filter="url(#f1)"></circle>
+	</g>
+	<svg x="calc(100% - 182px)" y="calc(100% - 195px)" >
+		<circle r="155" cx="155" cy="155" fill="#a2bfb8" filter="url(#f1)"></circle>
+	</svg>
+	<svg x="78.93%" y="4.68%" >
+		<circle r="26" cx="26" cy="26" fill="#a2bfb8" filter="url(#f1)"></circle>
+	</svg>
+	<svg x="calc(100% - 26px)" y="32.14%" >
+		<circle r="25" cx="25" cy="25" fill="#a2bfb8" filter="url(#f1)"></circle>
+	</svg>
+	<svg x="7.47%" y="65.76%" >
+		<circle r="25" cx="25" cy="25" fill="#a2bfb8" filter="url(#f1)"></circle>
+	</svg>
+	<svg x="1%" y="calc(100% - 50px)" >
+		<circle r="25" cx="25" cy="25" fill="#a2bfb8" filter="url(#f1)"></circle>
+	</svg>
+</svg>
