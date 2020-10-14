@@ -25,12 +25,12 @@ const red: PaletteColor = {
   contrastText: '#fff',
 };
 
-const yellow: PaletteColor = {
-  main: '#e0c87b',
-  light: lighten('#e0c87b', 0.2),
-  dark: darken('#e0c87b', 0.2),
-  contrastText: '#000',
-};
+// const yellow: PaletteColor = {
+//   main: '#e0c87b',
+//   light: lighten('#e0c87b', 0.2),
+//   dark: darken('#e0c87b', 0.2),
+//   contrastText: '#000',
+// };
 
 const theme = createMuiTheme({
   overrides: {
@@ -111,7 +111,7 @@ const theme = createMuiTheme({
     primary: dark,
     secondary: green,
     error: red,
-    // warning: yellow
+    // warning: yellow,
   },
   typography: {
     fontFamily,
