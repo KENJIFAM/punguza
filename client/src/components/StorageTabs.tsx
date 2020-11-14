@@ -1,7 +1,8 @@
 import React from 'react';
 import { lighten, makeStyles } from '@material-ui/core/styles';
 import { Box, Tab, Tabs } from '@material-ui/core';
-import { categories } from '../services/data';
+import { useSelector } from 'react-redux';
+import { ReduxState } from '../redux';
 
 interface Props {
   value: string;
@@ -12,17 +13,21 @@ const StorageTabs = (props: Props) => {
   const { value, onChange } = props;
   const classes = useStyles();
 
+  const storages = useSelector((state: ReduxState) => state.storages.data);
+  const foods = useSelector((state: ReduxState) => state.foods.data.usableFoods);
+
   const renderTabLabel = (id: string) => {
-    const cat = categories.find((c) => c.id === id);
+    const storage = storages.find((c) => c.id === id);
+    const storageFoods = foods.filter((f) => f.storage.id === storage?.id);
     return id !== 'ALL' ? (
       <Box display='flex' flexWrap='nowrap'>
-        {cat?.name}
-        <span className={classes.foodAmount}>{cat?.food.length}</span>
+        {storage?.name}
+        <span className={classes.foodAmount}>{storageFoods.length}</span>
       </Box>
     ) : (
       <Box display='flex' flexWrap='nowrap'>
         {'All food'}
-        <span className={classes.foodAmount}>{categories.flatMap((c) => c.food).length}</span>
+        <span className={classes.foodAmount}>{foods.length}</span>
       </Box>
     );
   };
@@ -38,9 +43,9 @@ const StorageTabs = (props: Props) => {
         scrollButtons='auto'
       >
         <Tab label={renderTabLabel('ALL')} value='ALL' />
-        <Tab label={renderTabLabel('FRIDGE')} value='FRIDGE' />
-        <Tab label={renderTabLabel('FREEZER')} value='FREEZER' />
-        <Tab label={renderTabLabel('PANTRY')} value='PANTRY' />
+        {storages.map((storage) => (
+          <Tab key={storage.id} label={renderTabLabel(storage.id)} value={storage.id} />
+        ))}
         {/* <Tab label={<AddIcon fontSize='small' />} value='NEW' /> */}
       </Tabs>
     </Box>
