@@ -1,237 +1,96 @@
-import { ReactComponent as SausagesIcon } from '../assets/icons/sausages.svg';
-import { ReactComponent as MilkIcon } from '../assets/icons/milk.svg';
-import { ReactComponent as CarrotIcon } from '../assets/icons/carrot.svg';
-import { ReactComponent as PizzaIcon } from '../assets/icons/pizza.svg';
-import { ReactComponent as BeefIcon } from '../assets/icons/beef.svg';
-import { ReactComponent as AppleIcon } from '../assets/icons/beef.svg';
+import { ReactComponent as AppleIcon } from '../assets/icons/apple.svg';
+import { ReactComponent as ArtichokeIcon } from '../assets/icons/artichoke.svg';
+import { ReactComponent as asparagusIcon } from '../assets/icons/asparagus.svg';
+import { ReactComponent as baguetteIcon } from '../assets/icons/baguette.svg';
 import { ReactComponent as BananaIcon } from '../assets/icons/banana.svg';
+import { ReactComponent as BeefIcon } from '../assets/icons/beef.svg';
+import { ReactComponent as blueberryIcon } from '../assets/icons/blueberry.svg';
 import { ReactComponent as BreadIcon } from '../assets/icons/bread.svg';
-import { ReactComponent as HamburgerIcon } from '../assets/icons/hamburger.svg';
+import { ReactComponent as bread1Icon } from '../assets/icons/bread1.svg';
+import { ReactComponent as brezelIcon } from '../assets/icons/brezel.svg';
+import { ReactComponent as brigadeiroIcon } from '../assets/icons/brigadeiro.svg';
+import { ReactComponent as broccoliIcon } from '../assets/icons/broccoli.svg';
+import { ReactComponent as cabbageIcon } from '../assets/icons/cabbage.svg';
 import { ReactComponent as CakeIcon } from '../assets/icons/cake.svg';
+import { ReactComponent as CarrotIcon } from '../assets/icons/carrot.svg';
+import { ReactComponent as cheeseIcon } from '../assets/icons/cheese.svg';
+import { ReactComponent as cherryIcon } from '../assets/icons/cherry.svg';
+import { ReactComponent as chocolateBarIcon } from '../assets/icons/chocolate-bar.svg';
+import { ReactComponent as citrusIcon } from '../assets/icons/citrus.svg';
+import { ReactComponent as coconutMilkIcon } from '../assets/icons/coconut-milk.svg';
+import { ReactComponent as dessertIcon } from '../assets/icons/dessert.svg';
+import { ReactComponent as dimSumIcon } from '../assets/icons/dim-sum.svg';
+import { ReactComponent as fishIcon } from '../assets/icons/fish.svg';
+import { ReactComponent as grapesIcon } from '../assets/icons/grapes.svg';
+import { ReactComponent as HamburgerIcon } from '../assets/icons/hamburger.svg';
+import { ReactComponent as hotDogIcon } from '../assets/icons/hot-dog.svg';
+import { ReactComponent as iceCreamIcon } from '../assets/icons/ice-cream.svg';
+import { ReactComponent as lasagnaIcon } from '../assets/icons/lasagna.svg';
+import { ReactComponent as mangoIcon } from '../assets/icons/mango.svg';
+import { ReactComponent as meatIcon } from '../assets/icons/meat.svg';
+import { ReactComponent as MilkIcon } from '../assets/icons/milk.svg';
+import { ReactComponent as milkCartonIcon } from '../assets/icons/milk-carton.svg';
+import { ReactComponent as naanIcon } from '../assets/icons/naan.svg';
+import { ReactComponent as onionIcon } from '../assets/icons/onion.svg';
+import { ReactComponent as pearIcon } from '../assets/icons/pear.svg';
+import { ReactComponent as pineappleIcon } from '../assets/icons/pineapple.svg';
+import { ReactComponent as PizzaIcon } from '../assets/icons/pizza.svg';
+import { ReactComponent as pretzelIcon } from '../assets/icons/pretzel.svg';
+import { ReactComponent as pumpkinIcon } from '../assets/icons/pumpkin.svg';
+import { ReactComponent as raspberryIcon } from '../assets/icons/raspberry.svg';
+import { ReactComponent as saladIcon } from '../assets/icons/salad.svg';
+import { ReactComponent as SausagesIcon } from '../assets/icons/sausages.svg';
+import { ReactComponent as strawberryIcon } from '../assets/icons/strawberry.svg';
+import { ReactComponent as tomatoIcon } from '../assets/icons/tomato.svg';
 
-export interface Food {
+interface IconData {
   id: string;
-  name: string;
-  brand?: string;
   icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-  expText: string;
-  exp: number;
-  amount: {
-    value: number;
-    unit: string;
-  };
 }
 
-export interface Category {
-  id: string;
-  name: string;
-  food: Food[];
-}
-
-export const categories: Category[] = [
-  {
-    id: 'FRIDGE',
-    name: 'Fridge',
-    food: [
-      {
-        id: 'Milk',
-        name: 'Milk',
-        brand: 'Valio',
-        icon: MilkIcon,
-        expText: 'Expiring today',
-        exp: 0.9,
-        amount: {
-          value: 1,
-          unit: 'liter',
-        },
-      },
-      {
-        id: 'Sausages',
-        name: 'Sausages',
-        brand: 'HK Sininen lenkki',
-        icon: SausagesIcon,
-        expText: '2 days left',
-        exp: 0.8,
-        amount: {
-          value: 500,
-          unit: 'g',
-        },
-      },
-      {
-        id: 'Cake',
-        name: 'Cake',
-        brand: 'Valio',
-        icon: CakeIcon,
-        expText: '3 days left',
-        exp: 0.5,
-        amount: {
-          value: 1,
-          unit: 'pcs',
-        },
-      },
-      {
-        id: 'Hamburger',
-        name: 'Hamburger',
-        brand: 'HK Sininen lenkki',
-        icon: HamburgerIcon,
-        expText: '5 days left',
-        exp: 0.4,
-        amount: {
-          value: 200,
-          unit: 'g',
-        },
-      },
-      {
-        id: 'Apple',
-        name: 'Apple',
-        icon: AppleIcon,
-        expText: '7 days left',
-        exp: 0.2,
-        amount: {
-          value: 3,
-          unit: 'pcs',
-        },
-      },
-    ],
-  },
-  {
-    id: 'FREEZER',
-    name: 'Freezer',
-    food: [
-      {
-        id: 'Beef',
-        name: 'Beef',
-        icon: BeefIcon,
-        expText: '3 days left',
-        exp: 0.5,
-        amount: {
-          value: 500,
-          unit: 'g',
-        },
-      },
-      {
-        id: 'Pizza',
-        name: 'Pizza',
-        brand: 'Grandiosa meatlover',
-        icon: PizzaIcon,
-        expText: '10 days left',
-        exp: 0.15,
-        amount: {
-          value: 500,
-          unit: 'g',
-        },
-      },
-    ],
-  },
-  {
-    id: 'PANTRY',
-    name: 'Pantry',
-    food: [
-      {
-        id: 'Banana',
-        name: 'Banana',
-        icon: BananaIcon,
-        expText: '1 days left',
-        exp: 0.85,
-        amount: {
-          value: 5,
-          unit: 'pcs',
-        },
-      },
-      {
-        id: 'Bread',
-        name: 'Bread',
-        icon: BreadIcon,
-        expText: '3 days left',
-        exp: 0.5,
-        amount: {
-          value: 100,
-          unit: 'g',
-        },
-      },
-      {
-        id: 'Carrots',
-        name: 'Carrots',
-        icon: CarrotIcon,
-        expText: '30 days left',
-        exp: 0.1,
-        amount: {
-          value: 500,
-          unit: 'g',
-        },
-      },
-    ],
-  },
+export const icons: IconData[] = [
+  { icon: pumpkinIcon, id: 'pumpkin' },
+  { icon: AppleIcon, id: 'apple' },
+  { icon: ArtichokeIcon, id: 'artichoke' },
+  { icon: asparagusIcon, id: 'asparagus' },
+  { icon: baguetteIcon, id: 'baguette' },
+  { icon: BananaIcon, id: 'banana' },
+  { icon: BeefIcon, id: 'beef' },
+  { icon: blueberryIcon, id: 'blueberry' },
+  { icon: BreadIcon, id: 'bread' },
+  { icon: bread1Icon, id: 'bread1' },
+  { icon: brezelIcon, id: 'brezel' },
+  { icon: brigadeiroIcon, id: 'brigadeiro' },
+  { icon: broccoliIcon, id: 'broccoli' },
+  { icon: cabbageIcon, id: 'cabbage' },
+  { icon: CakeIcon, id: 'cake' },
+  { icon: CarrotIcon, id: 'carrot' },
+  { icon: cheeseIcon, id: 'cheese' },
+  { icon: cherryIcon, id: 'cherry' },
+  { icon: chocolateBarIcon, id: 'chocolate-bar' },
+  { icon: citrusIcon, id: 'citrus' },
+  { icon: coconutMilkIcon, id: 'coconut-milk' },
+  { icon: dessertIcon, id: 'dessert' },
+  { icon: dimSumIcon, id: 'dim-sum' },
+  { icon: fishIcon, id: 'fish' },
+  { icon: grapesIcon, id: 'grapes' },
+  { icon: HamburgerIcon, id: 'hamburger' },
+  { icon: hotDogIcon, id: 'hot-dog' },
+  { icon: iceCreamIcon, id: 'ice-cream' },
+  { icon: lasagnaIcon, id: 'lasagna' },
+  { icon: mangoIcon, id: 'mango' },
+  { icon: meatIcon, id: 'meat' },
+  { icon: MilkIcon, id: 'milk' },
+  { icon: milkCartonIcon, id: 'milk-carton' },
+  { icon: naanIcon, id: 'naan' },
+  { icon: onionIcon, id: 'onion' },
+  { icon: pearIcon, id: 'pear' },
+  { icon: pineappleIcon, id: 'pineapple' },
+  { icon: PizzaIcon, id: 'pizza' },
+  { icon: pretzelIcon, id: 'pretzel' },
+  { icon: raspberryIcon, id: 'raspberry' },
+  { icon: saladIcon, id: 'salad' },
+  { icon: SausagesIcon, id: 'sausages' },
+  { icon: strawberryIcon, id: 'strawberry' },
+  { icon: tomatoIcon, id: 'tomato' },
 ];
-
-export interface Notification {
-  title: string;
-  description: string;
-}
-
-export interface Notifications {
-  expiring: Notification[];
-  expired: Notification[];
-  history: Notification[];
-}
-
-export const notifications: Notifications = {
-  expiring: [
-    {
-      title: 'Sausages expire today!',
-      description: 'This is the last day to use this item',
-    },
-    {
-      title: 'Sausages about to expire!',
-      description: 'You should use this item in 2 days',
-    },
-  ],
-  expired: [
-    {
-      title: 'Bananas (3 pcs) expired',
-      description: 'Please throw the item to bio-waste',
-    },
-    {
-      title: 'Pro pudding expired',
-      description: 'Please throw the item away',
-    },
-    {
-      title: 'Froosh Smoothie expired',
-      description: 'Please throw the item away',
-    },
-  ],
-  history: [
-    {
-      title: 'Milk (1 liter) ',
-      description: 'Expired 13.10.2020',
-    },
-    {
-      title: 'Pulled oats (450 g)',
-      description: 'Expired 13.10.2020',
-    },
-    {
-      title: 'Ryebread (2 pcs)',
-      description: 'Expired 12.10.2020',
-    },
-    {
-      title: 'Eggs (4 pcs)',
-      description: 'Expired 10.10.2020',
-    },
-    {
-      title: 'Eggs (4 pcs)',
-      description: 'Expired 7.10.2020',
-    },
-    {
-      title: 'Bananas (3 pcs) expired',
-      description: 'Expired 5.10.2020',
-    },
-    {
-      title: 'Pro pudding expired',
-      description: 'Expired 2.10.2020',
-    },
-    {
-      title: 'Froosh Smoothie expired',
-      description: 'Expired 1.10.2020',
-    },
-  ],
-};
