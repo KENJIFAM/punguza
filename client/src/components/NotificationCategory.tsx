@@ -1,16 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
-import { Notification } from '../services/data';
 import NotificationItem from './NotificationItem';
+import { Food } from '../services/types';
 
 interface Props {
-  notifications: Notification[];
-  notificationCategoryId: string;
+  foods: Food[];
+  notificationCategory: 'expiring' | 'expired' | 'history';
 }
 
 const NotificationCategory = (props: Props) => {
-  const { notifications, notificationCategoryId } = props;
+  const { foods, notificationCategory } = props;
   const classes = useStyles();
 
   return (
@@ -22,18 +22,18 @@ const NotificationCategory = (props: Props) => {
           component='p'
           className={classes.notificationCategory}
         >
-          {notificationCategoryId === 'expiring'
+          {notificationCategory === 'expiring'
             ? 'Expiring soon'
-            : notificationCategoryId === 'expired'
+            : notificationCategory === 'expired'
             ? 'Expired products'
             : 'History'}
         </Typography>
       </Box>
-      {notifications.map((n, i) => (
+      {foods.map((food, i) => (
         <NotificationItem
-          key={`${notificationCategoryId}-${i}`}
-          notification={n}
-          notificationCategoryId={notificationCategoryId}
+          key={`${notificationCategory}-${i}`}
+          food={food}
+          notificationCategory={notificationCategory}
         />
       ))}
     </Box>
