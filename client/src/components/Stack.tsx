@@ -2,18 +2,36 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
 import SadIcon from '@material-ui/icons/SentimentDissatisfiedRounded';
+import HappyIcon from '@material-ui/icons/SentimentSatisfiedRounded';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForwardIosRounded';
 
-const Stack = () => {
-  const classes = useStyles();
+interface Props {
+  expiredItems: number;
+  empty: boolean;
+  onClick: () => void;
+}
+
+const Stack = ({ expiredItems, empty, onClick }: Props) => {
+  const classes = useStyles(expiredItems);
+
+  const message = empty
+    ? 'Your storages are empty, start by adding your food'
+    : !expiredItems
+    ? 'Your food is in good condition'
+    : `You have ${expiredItems} expired item${expiredItems > 1 ? 's' : ''}`;
+
+  const Icon = expiredItems > 0 ? SadIcon : HappyIcon;
+
   return (
-    <Box position='relative' mt={0.5} mx={3}>
+    <Box position='relative' mt={0.5} mx={3} onClick={() => (!!expiredItems ? onClick() : null)}>
       <Box className={classes.stackTop}>
-        <SadIcon className={classes.sadIcon} color='primary' fontSize='large' />
+        <Icon className={classes.sadIcon} color='primary' fontSize='large' />
         <Typography variant='body2' color='primary' align='center' className={classes.info}>
-          You have 3 expired items
+          {message}
         </Typography>
-        <ArrowForwardIcon className={classes.arrowForwardIcon} color='primary' fontSize='small' />
+        {!!expiredItems && (
+          <ArrowForwardIcon className={classes.arrowForwardIcon} color='primary' fontSize='small' />
+        )}
       </Box>
       <Box className={classes.stackMid} />
       <Box className={classes.stackBot} />
@@ -34,7 +52,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: theme.spacing(2.5),
+    padding: theme.spacing(0, 2.5),
+    cursor: (expiredItems: number) => (!!expiredItems ? 'pointer' : 'default'),
   },
   stackMid: {
     height: 84,
@@ -56,9 +75,10 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
   },
   info: {
-    maxWidth: 176,
     margin: 'auto',
     letterSpacing: 0.55,
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
   },
   sadIcon: {
     opacity: 0.5,

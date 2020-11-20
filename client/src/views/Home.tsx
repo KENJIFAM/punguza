@@ -1,4 +1,7 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import moment from 'moment';
 
 import { darken, makeStyles } from '@material-ui/core/styles';
 import { Box, Container, IconButton } from '@material-ui/core';
@@ -8,43 +11,80 @@ import Header from '../components/Header';
 import FoodList from '../components/FoodList';
 import StorageTabs from '../components/StorageTabs';
 import NotificationDialog from '../components/NotificationDialog';
-import { categories } from '../services/data';
+import Spinner from '../components/Spinner';
+import AddFoodDialog from '../components/AddFoodDialog';
+import { ReduxState } from '../redux';
 
 const Home = () => {
   const classes = useStyles();
+  const history = useHistory();
+
+  const userData = useSelector((state: ReduxState) => state.auth.data);
+  const storages = useSelector((state: ReduxState) => state.storages.data);
+  const foods = useSelector((state: ReduxState) => state.foods.data);
 
   const [searchInput, setSearchInput] = useState('');
   const [tab, setTab] = useState('ALL');
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [notificationDialogOpen, setNotificationDialogOpen] = useState(false);
+  const [addFoodDialogOpen, setAddFooDialogOpen] = useState(false);
 
-  const foodToRender = useMemo(() => {
-    if (tab === 'ALL') {
-      return categories
-        .flatMap((c) => c.food.map((f) => ({ ...f, categoryName: c.name })))
-        .sort((a, b) => (a.exp < b.exp ? 1 : -1));
+  const sortedFoods = useMemo(
+    () =>
+      [...foods.usableFoods].sort((a, b) =>
+        moment(a.expiredDate).isBefore(moment(b.expiredDate)) ? -1 : 1,
+      ),
+    [foods.usableFoods],
+  );
+
+  const foodsToRender = useMemo(() => {
+    if (searchInput) {
+      return sortedFoods.filter((f) =>
+        [f.name, f.brand ?? '', f.icon]
+          .map((w) => w.toLowerCase())
+          .some((w) => w.includes(searchInput.toLowerCase())),
+      );
     }
-    const cat = categories.find((c) => c.id === tab);
+    return tab === 'ALL' ? sortedFoods : sortedFoods.filter((f) => f.storage.id === tab);
+  }, [sortedFoods, tab, searchInput]);
+
+  useEffect(() => {
+    if (!userData) {
+      history.push('/login');
+    }
+  }, [userData, history]);
+
+  if (!userData || !storages.length) {
     return (
-      cat?.food
-        .map((f) => ({ ...f, categoryName: cat.name }))
-        .sort((a, b) => (a.exp < b.exp ? 1 : -1)) ?? []
+      <Container className={classes.loadingContainer}>
+        <Spinner multi />
+      </Container>
     );
-  }, [tab]);
+  }
 
   return (
     <Container className={classes.root}>
       <Header
         searchInput={searchInput}
         onSearchInputChange={setSearchInput}
-        setDialogOpen={setDialogOpen}
+        setDialogOpen={setNotificationDialogOpen}
       />
-      <Stack />
+      <Stack
+        expiredItems={foods.expiredFoods.length}
+        empty={!sortedFoods.length}
+        onClick={() => setNotificationDialogOpen(true)}
+      />
       <Box className={classes.main}>
         <StorageTabs value={tab} onChange={setTab} />
-        <FoodList foodToRender={foodToRender} />
+        <FoodList foodsToRender={foodsToRender} />
       </Box>
-      <NotificationDialog open={dialogOpen} onClose={() => setDialogOpen(false)} />
-      <IconButton className={classes.addButton}>
+      <NotificationDialog
+        open={notificationDialogOpen}
+        onClose={() => setNotificationDialogOpen(false)}
+      />
+      {addFoodDialogOpen && (
+        <AddFoodDialog open={addFoodDialogOpen} onClose={() => setAddFooDialogOpen(false)} />
+      )}
+      <IconButton className={classes.addButton} onClick={() => setAddFooDialogOpen(true)}>
         <AddIcon className={classes.addIcon} />
       </IconButton>
     </Container>
@@ -83,6 +123,13 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     width: 50,
     height: 50,
+  },
+  loadingContainer: {
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: theme.palette.secondary.light,
   },
 }));
 
