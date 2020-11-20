@@ -1,0 +1,13 @@
+runtime: nodejs12
+service: api
+# env: flex
+entrypoint: npm run start
+# [END runtime]
+
+# # [START handlers]
+handlers:
+  - url: /.*
+    secure: always
+    redirect_http_response_code: 301
+    script: auto
+# # [END handlers]
