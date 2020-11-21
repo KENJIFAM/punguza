@@ -8,12 +8,6 @@ Khoa Pham
 Joel Bergström
 Fengyu Li
 
-## Demo
-
-Check it out here: https://punguza.appspot.com
-
-![Demo](demo.gif)
-
 ## How to start
 
 Run server and client in 2 different terminals.
@@ -42,3 +36,9 @@ SECRET_KEY=<any-string>
 2. Install the required packages with `yarn install` or `npm install`.
 3. Start the dev server with `yarn start` or `npm start`.
 4. Open any browser and enter `localhost:3000`.
+
+## Demo
+
+Check it out here: https://punguza.appspot.com
+
+![Demo](demo.gif)
