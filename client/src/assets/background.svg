@@ -1,27 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 1000 1000">
-	<defs>
-		<filter id="f1" x="0" y="0">
-			<feGaussianBlur in="SourceGraphic" stdDeviation="0.5"></feGaussianBlur>
-		</filter>
-	</defs>
-	<rect width="100%" height="100%" fill="#d4dddb"></rect>
-	<g transform="translate(79, 120)">
-		<circle r="155" fill="#a2bfb8" filter="url(#f1)"></circle>
-	</g>
-	<svg x="calc(100% - 182px)" y="calc(100% - 195px)" >
-		<circle r="155" cx="155" cy="155" fill="#a2bfb8" filter="url(#f1)"></circle>
-	</svg>
-	<svg x="78.93%" y="4.68%" >
-		<circle r="26" cx="26" cy="26" fill="#a2bfb8" filter="url(#f1)"></circle>
-	</svg>
-	<svg x="calc(100% - 26px)" y="32.14%" >
-		<circle r="25" cx="25" cy="25" fill="#a2bfb8" filter="url(#f1)"></circle>
-	</svg>
-	<svg x="7.47%" y="65.76%" >
-		<circle r="25" cx="25" cy="25" fill="#a2bfb8" filter="url(#f1)"></circle>
-	</svg>
-	<svg x="1%" y="calc(100% - 50px)" >
-		<circle r="25" cx="25" cy="25" fill="#a2bfb8" filter="url(#f1)"></circle>
-	</svg>
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="1440px" height="812px" viewbox="0 0 1440 812" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M0 0L1440 0L1440 812L0 812L0 0Z" id="path_1" />
+    <path d="M0 0L1440 0L1440 812L0 812L0 0L0 0L0 0Z" id="path_2" />
+    <clipPath id="mask_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+    <clipPath id="mask_2">
+      <use xlink:href="#path_2" />
+    </clipPath>
+  </defs>
+  <g id="background2">
+    <path d="M0 0L1440 0L1440 812L0 812L0 0Z" id="Background" fill="none" fill-rule="evenodd" stroke="none" />
+    <g clip-path="url(#mask_1)">
+      <g id="Mask-group" transform="translate(-0.02545166 -0.02722168)">
+        <path d="M0 0L1440 0L1440 812L0 812L0 0L0 0L0 0Z" id="path_1" fill="none" fill-rule="evenodd" stroke="none" />
+        <g clip-path="url(#mask_2)">
+          <g id="Group" transform="translate(-96.97455 -116.97278)">
+            <g id="background1">
+              <path d="M0 0L1440 0L1440 812L0 812L0 0L0 0L0 0Z" transform="translate(97 117)" id="Rectangle" fill="#D4DDDB" fill-rule="evenodd" stroke="none" />
+              <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25L0 25L0 25Z" transform="translate(599 879)" id="Circle#5" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25L0 25L0 25Z" transform="translate(624 651)" id="Circle#4" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25L0 25L0 25Z" transform="translate(1000 378)" id="Circle#3" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25L0 25L0 25Z" transform="translate(1458 403)" id="Circle#3-Copy" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25L0 25L0 25Z" transform="translate(1187 205)" id="Circle#3-Copy-2" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25L0 25L0 25Z" transform="translate(1273 684)" id="Circle#3-Copy-3" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25L0 25L0 25Z" transform="translate(948 155)" id="Circle#2" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25L0 25L0 25Z" transform="translate(304 130)" id="Circle#2-Copy" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25L0 25L0 25Z" transform="translate(389 523)" id="Circle#2-Copy-3" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25L0 25L0 25Z" transform="translate(72 367)" id="Circle#2-Copy-2" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 155C0 69.3958 69.3958 0 155 0C240.603 0 310 69.3958 310 155C310 240.603 240.603 310 155 310C69.3958 310 0 240.603 0 155L0 155L0 155Z" transform="translate(520 82)" id="Circle#1" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 155C0 69.3958 69.3958 0 155 0C240.603 0 310 69.3958 310 155C310 240.603 240.603 310 155 310C69.3958 310 0 240.603 0 155L0 155L0 155Z" transform="translate(0 676)" id="Circle#1-Copy" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 155C0 69.3959 69.3959 0 155 0C240.604 0 310 69.3959 310 155C310 240.604 240.604 310 155 310C69.3959 310 0 240.604 0 155L0 155L0 155Z" transform="translate(843 734)" id="Circle" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+              <path d="M0 155C0 69.3959 69.3959 0 155 0C240.604 0 310 69.3959 310 155C310 240.604 240.604 310 155 310C69.3959 310 0 240.604 0 155L0 155L0 155Z" transform="translate(1353 0)" id="Circle-Copy" fill="#A2BFB8" fill-rule="evenodd" stroke="none" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
 </svg>
