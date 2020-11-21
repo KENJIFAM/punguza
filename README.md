@@ -4,9 +4,9 @@ Punguza is a web application that tries to reduce food waste from a consumer per
 
 ## Team members
 
-Khoa Pham
-Joel Bergström
-Fengyu Li
+- Khoa Pham
+- Joel Bergström
+- Fengyu Li
 
 ## How to start
 
